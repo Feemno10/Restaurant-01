@@ -32,6 +32,7 @@ app.get('/' , (req,res)=>{
 
 app.use('/auth' , require('./routers/authroutes'));
 app.use('/admin' , require('./routers/adminrouters'));
+app.use('/restaurant' , require('./routers/restaurantrouters'));
 
 
 app.listen(port , ()=>{

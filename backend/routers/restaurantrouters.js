@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const restaurantCtrl = require("../controller/restaurant_controller");
+const restaurantCtrl = require("../controller/restaurantctrl");
 const { auth, role } = require("../middleware/auth");
 
 // --- ผู้ดูแลร้าน (Restaurant) ---
