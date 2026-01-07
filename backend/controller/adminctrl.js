@@ -43,13 +43,15 @@ exports.createUserByAdmin = async (req, res) => {
 
     const hash = await bcrypt.hash(password, 10);
 
-    const userId = await User.createuser(
+    const userId = await User.createuser({
       email,
-      hash,
+      password: hash,
       first_name,
       last_name,
-      role
-    );
+      role,
+      avatar: "/uploads/default-avatar.png",
+      status: role === "customer" ? "approved" : "pending"
+    });
 
     res.status(201).json({
       success: true,
@@ -83,14 +85,16 @@ exports.banUser = async (req,res)=>{
     }
 };
 
-exports.listAllUser = async (req,res)=>{
-    try{
+exports.listUsers = async (req, res) => {
+    try {
         const users = await User.listUsers();
-        res,json ({ success : true , data : users});
-    }catch(err){
-        res.status(500).json ({ message : "โหลดข้อมูลไม่สำเร็จ"});
+        res.json({ success: true, data: users });
+    } catch (err) {
+        console.error('LIST USERS ERROR:', err);
+        res.status(500).json({ message: 'ไม่สามารถดึงข้อมูลผู้ใช้งานได้' });
     }
 };
+
 
 exports.listRestaurants = async (req, res) => {
   try {

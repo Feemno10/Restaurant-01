@@ -12,7 +12,7 @@ router.post('/create' , ctrl.createUserByAdmin);
 router.put('/approve/:id' , ctrl.approveUser);
 router.put('/ban' , ctrl.banUser);
 
-router.get('/listuser' , ctrl.listAllUser);
+router.get('/listuser' , ctrl.listUsers);
 router.get('/listres' , ctrl.listRestaurants);
 router.get('/listrider' , ctrl.listRiders);
 

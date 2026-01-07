@@ -103,7 +103,7 @@ async function listUsers() {
     const rows = await conn.query(
       `SELECT id, email, first_name, last_name, role, status, avatar, created_at
        FROM users
-       ORDER BY id DESC`
+       ORDER BY id ASC`
     );
     return rows;
   } finally {

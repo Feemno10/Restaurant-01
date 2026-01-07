@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const ctrl = require('../controller/food_categoryctrl');
+const categoryCtrl = require('../controller/food_categoryctrl');
 const { auth , role } = require('../middleware/auth');
 
 router.use(auth);
